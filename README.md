@@ -1,6 +1,6 @@
 # Vue Router GWT
 
-A JsInterop wrapper for [Vue Router](https://github.com/vuejs/vue-router) and [Vue GWT](https://axellience.github.io/vue-gwt/).
+A JsInterop wrapper for [Vue Router](https://github.com/vuejs/vue-router) to use in [Vue GWT](https://axellience.github.io/vue-gwt/).
 
 This wrapper allows you to use [Vue Router](https://github.com/vuejs/vue-router) in [Vue GWT](https://axellience.github.io/vue-gwt/) apps.
 
