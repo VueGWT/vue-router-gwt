@@ -6,6 +6,7 @@ import com.axellience.vuegwt.client.options.VueComponentOptions;
 import com.axellience.vueroutergwt.client.functions.AfterEach;
 import com.axellience.vueroutergwt.client.functions.Callback;
 import com.axellience.vueroutergwt.client.functions.NavigationGuard;
+import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
@@ -24,22 +25,26 @@ public class VueRouter
 
     }
 
-    public VueComponent getApp()
+    @JsOverlay
+    public final VueComponent getApp()
     {
         return app;
     }
 
-    public RouterMode getMode()
+    @JsOverlay
+    public final RouterMode getMode()
     {
         return RouterMode.fromValue(this.mode);
     }
 
-    public void setMode(RouterMode mode)
+    @JsOverlay
+    public final void setMode(RouterMode mode)
     {
         this.mode = mode.getValue();
     }
 
-    public Route getCurrentRoute()
+    @JsOverlay
+    public final Route getCurrentRoute()
     {
         return currentRoute;
     }
