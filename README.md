@@ -133,3 +133,12 @@ public class RootComponent extends VueComponent{
 Easy, right?
 
 If you want more documentation on the API you can checkout the [official Vue Router documentation](https://router.vuejs.org/).
+
+## Who Made This?
+
+<p align="center">
+    Vue GWT is developed by the awesome people at<br/>
+    <a href="https://www.genmymodel.com" target="_blank">
+        <img src="https://axellience.github.io/vue-gwt/resources/images/GenMyModel-Logo-Black.png" alt="GenMyModel" height="50"/>
+    </a>
+</p>
