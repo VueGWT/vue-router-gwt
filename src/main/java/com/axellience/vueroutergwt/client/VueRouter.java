@@ -1,8 +1,8 @@
 package com.axellience.vueroutergwt.client;
 
 import com.axellience.vuegwt.client.VueComponent;
-import com.axellience.vuegwt.client.definitions.VueComponentDefinition;
 import com.axellience.vuegwt.client.jsnative.types.JsArray;
+import com.axellience.vuegwt.client.options.VueComponentOptions;
 import com.axellience.vueroutergwt.client.functions.AfterEach;
 import com.axellience.vueroutergwt.client.functions.Callback;
 import com.axellience.vueroutergwt.client.functions.NavigationGuard;
@@ -15,13 +15,33 @@ import jsinterop.annotations.JsType;
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class VueRouter
 {
-    VueComponent app;
-    RouterMode mode;
-    Route currentRoute;
+    private VueComponent app;
+    private String mode;
+    private Route currentRoute;
 
     public VueRouter(RouterOptions options)
     {
 
+    }
+
+    public VueComponent getApp()
+    {
+        return app;
+    }
+
+    public RouterMode getMode()
+    {
+        return RouterMode.fromValue(this.mode);
+    }
+
+    public void setMode(RouterMode mode)
+    {
+        this.mode = mode.getValue();
+    }
+
+    public Route getCurrentRoute()
+    {
+        return currentRoute;
     }
 
     public native void beforeEach(NavigationGuard guard);
@@ -40,7 +60,7 @@ public class VueRouter
 
     public native void forward();
 
-    public native JsArray<VueComponentDefinition> getMatchedComponents(String to);
+    public native JsArray<VueComponentOptions> getMatchedComponents(String to);
 
     public native void onReady(Callback callback, Callback errorCallback);
 

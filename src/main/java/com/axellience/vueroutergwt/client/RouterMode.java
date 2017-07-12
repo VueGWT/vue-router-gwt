@@ -18,4 +18,16 @@ public enum RouterMode
     {
         return value;
     }
+
+    public static RouterMode fromValue(String value)
+    {
+        if ("hash".equals(value))
+            return RouterMode.HASH;
+        if ("history".equals(value))
+            return RouterMode.HISTORY;
+        if ("abstract".equals(value))
+            return RouterMode.ABSTRACT;
+
+        return null;
+    }
 }

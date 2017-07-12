@@ -1,9 +1,9 @@
 package com.axellience.vueroutergwt.client;
 
 import com.axellience.vuegwt.client.VueComponent;
-import com.axellience.vuegwt.client.definitions.VueComponentDefinition;
-import com.axellience.vuegwt.client.definitions.VueDefinitionCache;
 import com.axellience.vuegwt.client.jsnative.types.JsArray;
+import com.axellience.vuegwt.client.options.VueComponentOptions;
+import com.axellience.vuegwt.client.options.VueOptionsCache;
 import com.axellience.vueroutergwt.client.functions.NavigationGuard;
 import com.axellience.vueroutergwt.client.functions.RedirectOption;
 import jsinterop.annotations.JsProperty;
@@ -15,7 +15,7 @@ public class RouteConfig
 {
     @JsProperty private String path;
     @JsProperty private String name;
-    @JsProperty private VueComponentDefinition component;
+    @JsProperty private VueComponentOptions component;
     @JsProperty private Dictionary<Object> components;
     @JsProperty private Object redirect;
     @JsProperty private Object alias;
@@ -59,18 +59,17 @@ public class RouteConfig
         return this;
     }
 
-    public VueComponentDefinition getComponent()
+    public VueComponentOptions getComponent()
     {
         return component;
     }
 
     public RouteConfig setComponent(Class<? extends VueComponent> componentClass)
     {
-        return this.setComponent(VueDefinitionCache.getComponentDefinitionForClass(componentClass));
+        return this.setComponent(VueOptionsCache.getComponentOptions(componentClass));
     }
 
-    public RouteConfig setComponent(
-        VueComponentDefinition<? extends VueComponent> componentDefinition)
+    public RouteConfig setComponent(VueComponentOptions<? extends VueComponent> componentDefinition)
     {
         this.component = componentDefinition;
         return this;
@@ -82,7 +81,7 @@ public class RouteConfig
     }
 
     public RouteConfig addComponent(String name,
-        VueComponentDefinition<? extends VueComponent> componentDefinition)
+        VueComponentOptions<? extends VueComponent> componentDefinition)
     {
         if (this.components == null)
             this.components = new Dictionary<>();
@@ -93,8 +92,7 @@ public class RouteConfig
 
     public RouteConfig addComponent(String name, Class<? extends VueComponent> componentClass)
     {
-        return this.addComponent(name,
-            VueDefinitionCache.getComponentDefinitionForClass(componentClass));
+        return this.addComponent(name, VueOptionsCache.getComponentOptions(componentClass));
     }
 
     public Object getRedirect()
