@@ -10,36 +10,34 @@ Make sure you have [set up your Vue GWT project](https://axellience.github.io/vu
 
 Then follow these steps:
 
-**✅ Clone This Repo And Install Locally**
-
-For now there is no Maven repository.
-
-You must clone the source on your computer and mvn install them:
-
-```bash
-git clone https://github.com/Axellience/vue-router-gwt.git
-cd vue-router-gwt
-mvn clean install
-```
-
 **✅ Add the Maven Dependency**
 
 ```xml
-<properties>
-    ...
-    <vue-router-gwt.version>0.1-SNAPSHOT</vue-router-gwt.version>
-    ...
-</properties>
+<project>
+    <properties>
+        ...
+        <vue-router-gwt.version>0.1-SNAPSHOT</vue-router-gwt.version>
+    </properties>
+    
+    <dependencies>
+        ...
+        <dependency>
+            <groupId>com.axellience</groupId>
+            <artifactId>vue-router-gwt</artifactId>
+            <version>${vue-router-gwt.version}</version>
+        </dependency>
+    </dependencies>
 
-<dependencies>
-    ...
-    <dependency>
-        <groupId>com.axellience</groupId>
-        <artifactId>vue-router-gwt</artifactId>
-        <version>${vue-router-gwt.version}</version>
-    </dependency>
-    ...
-</dependencies>
+    
+    <!-- For now we only have SNAPSHOT releases, so you need to add the SonaType repository to get them -->
+    <repositories>
+        ...
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </repository>
+    </repositories>
+</project>
 ```
 
 **✅ Add Vue Router JS Dependency to Your `index.html`**
