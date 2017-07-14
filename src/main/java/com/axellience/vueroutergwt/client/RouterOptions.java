@@ -1,6 +1,6 @@
 package com.axellience.vueroutergwt.client;
 
-import com.axellience.vuegwt.client.jsnative.types.JsArray;
+import com.axellience.vuegwt.client.jsnative.jstypes.JsArray;
 import com.axellience.vueroutergwt.client.functions.ParseQuery;
 import com.axellience.vueroutergwt.client.functions.ScrollBehavior;
 import com.axellience.vueroutergwt.client.functions.StringifyQuery;

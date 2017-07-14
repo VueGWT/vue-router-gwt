@@ -1,9 +1,9 @@
 package com.axellience.vueroutergwt.client;
 
-import com.axellience.vuegwt.client.VueComponent;
-import com.axellience.vuegwt.client.jsnative.types.JsArray;
-import com.axellience.vuegwt.client.options.VueComponentOptions;
-import com.axellience.vuegwt.client.options.VueOptionsCache;
+import com.axellience.vuegwt.client.component.VueComponent;
+import com.axellience.vuegwt.client.jsnative.jstypes.JsArray;
+import com.axellience.vuegwt.client.component.options.VueComponentOptions;
+import com.axellience.vuegwt.client.VueOptionsCache;
 import com.axellience.vueroutergwt.client.functions.NavigationGuard;
 import com.axellience.vueroutergwt.client.functions.RedirectOption;
 import jsinterop.annotations.JsProperty;

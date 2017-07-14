@@ -1,6 +1,6 @@
 package com.axellience.vueroutergwt.client;
 
-import com.axellience.vuegwt.client.jsnative.types.JsArray;
+import com.axellience.vuegwt.client.jsnative.jstypes.JsArray;
 import jsinterop.annotations.JsProperty;
 
 /**

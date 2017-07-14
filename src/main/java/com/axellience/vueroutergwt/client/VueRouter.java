@@ -1,8 +1,8 @@
 package com.axellience.vueroutergwt.client;
 
-import com.axellience.vuegwt.client.VueComponent;
-import com.axellience.vuegwt.client.jsnative.types.JsArray;
-import com.axellience.vuegwt.client.options.VueComponentOptions;
+import com.axellience.vuegwt.client.component.VueComponent;
+import com.axellience.vuegwt.client.jsnative.jstypes.JsArray;
+import com.axellience.vuegwt.client.component.options.VueComponentOptions;
 import com.axellience.vueroutergwt.client.functions.AfterEach;
 import com.axellience.vueroutergwt.client.functions.Callback;
 import com.axellience.vueroutergwt.client.functions.NavigationGuard;
