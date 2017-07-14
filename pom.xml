@@ -52,6 +52,7 @@
 			<groupId>com.axellience</groupId>
 			<artifactId>vue-gwt</artifactId>
 			<version>${vue-gwt.version}</version>
+			<optional>true</optional>
 		</dependency>
         <dependency>
             <groupId>com.google.gwt</groupId>
