@@ -57,7 +57,7 @@ We have an application with a `RootComponent` and we want to set up routing for 
 
 ```java
 @Component
-public class FooComponent extends VueComponent {
+public class FooComponent extends Vue {
     @Override
     public void created() {}
 }
@@ -71,7 +71,7 @@ public class FooComponent extends VueComponent {
 
 ```java
 @Component
-public class BarComponent extends VueComponent {
+public class BarComponent extends Vue {
     @Override
     public void created() {}
 }
@@ -103,7 +103,7 @@ Let's see how we declare our routes:
 
 ```java
 @Component
-public class RootComponent extends VueComponent{
+public class RootComponent extends Vue{
     @Override
     public void created() {}
 
