@@ -1,6 +1,6 @@
 package com.axellience.vueroutergwt.client;
 
-import com.axellience.vuegwt.client.component.VueComponent;
+import com.axellience.vuegwt.client.Vue;
 import com.axellience.vuegwt.client.jsnative.jstypes.JsArray;
 import com.axellience.vuegwt.client.component.options.VueComponentOptions;
 import com.axellience.vueroutergwt.client.functions.AfterEach;
@@ -16,7 +16,7 @@ import jsinterop.annotations.JsType;
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class VueRouter
 {
-    private VueComponent app;
+    private Vue app;
     private String mode;
     private Route currentRoute;
 
@@ -26,7 +26,7 @@ public class VueRouter
     }
 
     @JsOverlay
-    public final VueComponent getApp()
+    public final Vue getApp()
     {
         return app;
     }

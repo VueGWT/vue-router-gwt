@@ -1,6 +1,6 @@
 package com.axellience.vueroutergwt.client;
 
-import com.axellience.vuegwt.client.component.VueComponent;
+import com.axellience.vuegwt.client.Vue;
 import com.axellience.vueroutergwt.client.functions.RedirectOption;
 import com.google.gwt.regexp.shared.RegExp;
 import jsinterop.annotations.JsProperty;
@@ -13,7 +13,7 @@ public class RouteRecord
     @JsProperty public String path;
     @JsProperty public RegExp regex;
     @JsProperty public Dictionary<Object> components;
-    @JsProperty public Dictionary<VueComponent> instances;
+    @JsProperty public Dictionary<Vue> instances;
     @JsProperty public String name;
     @JsProperty public RouteRecord parent;
     @JsProperty public RedirectOption redirect;

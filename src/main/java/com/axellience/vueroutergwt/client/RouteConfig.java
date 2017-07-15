@@ -1,6 +1,6 @@
 package com.axellience.vueroutergwt.client;
 
-import com.axellience.vuegwt.client.component.VueComponent;
+import com.axellience.vuegwt.client.Vue;
 import com.axellience.vuegwt.client.jsnative.jstypes.JsArray;
 import com.axellience.vuegwt.client.component.options.VueComponentOptions;
 import com.axellience.vuegwt.client.VueOptionsCache;
@@ -31,7 +31,7 @@ public class RouteConfig
         this.path = path;
     }
 
-    public RouteConfig(String path, Class<? extends VueComponent> componentClass)
+    public RouteConfig(String path, Class<? extends Vue> componentClass)
     {
         this(path);
         this.setComponent(componentClass);
@@ -64,12 +64,12 @@ public class RouteConfig
         return component;
     }
 
-    public RouteConfig setComponent(Class<? extends VueComponent> componentClass)
+    public RouteConfig setComponent(Class<? extends Vue> componentClass)
     {
         return this.setComponent(VueOptionsCache.getComponentOptions(componentClass));
     }
 
-    public RouteConfig setComponent(VueComponentOptions<? extends VueComponent> componentDefinition)
+    public RouteConfig setComponent(VueComponentOptions<? extends Vue> componentDefinition)
     {
         this.component = componentDefinition;
         return this;
@@ -81,7 +81,7 @@ public class RouteConfig
     }
 
     public RouteConfig addComponent(String name,
-        VueComponentOptions<? extends VueComponent> componentDefinition)
+        VueComponentOptions<? extends Vue> componentDefinition)
     {
         if (this.components == null)
             this.components = new Dictionary<>();
@@ -90,7 +90,7 @@ public class RouteConfig
         return this;
     }
 
-    public RouteConfig addComponent(String name, Class<? extends VueComponent> componentClass)
+    public RouteConfig addComponent(String name, Class<? extends Vue> componentClass)
     {
         return this.addComponent(name, VueOptionsCache.getComponentOptions(componentClass));
     }
