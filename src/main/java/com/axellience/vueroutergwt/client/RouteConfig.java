@@ -1,9 +1,8 @@
 package com.axellience.vueroutergwt.client;
 
 import com.axellience.vuegwt.client.Vue;
-import com.axellience.vuegwt.client.VueGwtCache;
-import com.axellience.vuegwt.client.jsnative.jstypes.JsArray;
 import com.axellience.vuegwt.client.component.options.VueComponentOptions;
+import com.axellience.vuegwt.client.jsnative.jstypes.JsArray;
 import com.axellience.vuegwt.client.vue.VueConstructor;
 import com.axellience.vueroutergwt.client.functions.NavigationGuard;
 import com.axellience.vueroutergwt.client.functions.RedirectOption;
@@ -32,10 +31,10 @@ public class RouteConfig
         this.path = path;
     }
 
-    public RouteConfig(String path, Class<? extends Vue> componentClass)
+    public RouteConfig(String path, VueConstructor<? extends Vue> vueConstructor)
     {
         this(path);
-        this.setComponent(componentClass);
+        this.setComponent(vueConstructor);
     }
 
     public String getPath()
@@ -63,11 +62,6 @@ public class RouteConfig
     public Object getComponent()
     {
         return component;
-    }
-
-    public RouteConfig setComponent(Class<? extends Vue> componentClass)
-    {
-        return this.setComponent(VueGwtCache.getVueConstructor(componentClass));
     }
 
     public RouteConfig setComponent(VueComponentOptions<? extends Vue> componentDefinition)
@@ -105,11 +99,6 @@ public class RouteConfig
 
         this.components.put(name, vueConstructor);
         return this;
-    }
-
-    public RouteConfig addComponent(String name, Class<? extends Vue> componentClass)
-    {
-        return this.addComponent(name, VueGwtCache.getVueConstructor(componentClass));
     }
 
     public Object getRedirect()
