@@ -15,6 +15,9 @@ buildNumber.properties
 ### Java template
 *.class
 
+### System files
+.DS_Store
+
 # Package Files #
 *.jar
 *.war
