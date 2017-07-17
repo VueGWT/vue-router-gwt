@@ -1,133 +1,166 @@
 package com.axellience.vueroutergwt.client;
 
 import com.axellience.vuegwt.client.jsnative.jstypes.JsArray;
+import com.axellience.vuegwt.client.jsnative.jstypes.JsObject;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
+import jsinterop.annotations.JsType;
 
 /**
  * @author Adrien Baron
  */
-public class Route
+@JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")
+public final class Route extends JsObject
 {
     @JsProperty private String name;
     @JsProperty private String path;
     @JsProperty private String hash;
-    @JsProperty private Dictionary<String> query;
-    @JsProperty private Dictionary<String> params;
+    @JsProperty private JsObject<String> query;
+    @JsProperty private JsObject<String> params;
     @JsProperty private String fullPath;
     @JsProperty private JsArray<RouteRecord> matched;
     @JsProperty private String redirectedFrom;
     @JsProperty private Object meta;
 
-    public Route(String name, String path)
+    @JsOverlay
+    public static Route of(String name, String path)
     {
-        this.name = name;
-        this.path = path;
+        return new Route().setName(name).setPath(path);
     }
 
-    public String getName()
+    @JsOverlay
+    public final String getName()
     {
         return name;
     }
 
-    public Route setName(String name)
+    @JsOverlay
+    public final Route setName(String name)
     {
         this.name = name;
         return this;
     }
 
-    public String getPath()
+    @JsOverlay
+    public final String getPath()
     {
         return path;
     }
 
-    public Route setPath(String path)
+    @JsOverlay
+    public final Route setPath(String path)
     {
         this.path = path;
         return this;
     }
 
-    public String getHash()
+    @JsOverlay
+    public final String getHash()
     {
         return hash;
     }
 
-    public Route setHash(String hash)
+    @JsOverlay
+    public final Route setHash(String hash)
     {
         this.hash = hash;
         return this;
     }
 
-    public Dictionary<String> getQuery()
+    @JsOverlay
+    public final JsObject<String> getQuery()
     {
         return query;
     }
 
-    public Route setQueryField(String queryFieldName, String queryFieldValue)
+    @JsOverlay
+    public final Route setQuery(JsObject<String> query)
     {
-        if (this.query == null)
-            this.query = new Dictionary<>();
-
-        this.query.put(queryFieldName, queryFieldValue);
-
+        this.query = query;
         return this;
     }
 
-    public Dictionary<String> getParams()
+    @JsOverlay
+    public final Route setQueryParameter(String key, String value)
+    {
+        if (this.query == null)
+            this.query = new JsObject<>();
+
+        this.query.set(key, value);
+        return this;
+    }
+
+    @JsOverlay
+    public final JsObject<String> getParams()
     {
         return params;
     }
 
-    public Route setParam(String name, String value)
+    @JsOverlay
+    public final Route setParams(JsObject<String> params)
     {
-        if (this.params == null)
-            this.params = new Dictionary<>();
-
-        this.params.put(name, value);
+        this.params = params;
         return this;
     }
 
-    public String getFullPath()
+    @JsOverlay
+    public final Route setParam(String key, String value)
+    {
+        if (this.params == null)
+            this.params = new JsObject<>();
+
+        this.params.set(key, value);
+        return this;
+    }
+
+    @JsOverlay
+    public final String getFullPath()
     {
         return fullPath;
     }
 
-    public Route setFullPath(String fullPath)
+    @JsOverlay
+    public final Route setFullPath(String fullPath)
     {
         this.fullPath = fullPath;
         return this;
     }
 
-    public JsArray<RouteRecord> getMatched()
+    @JsOverlay
+    public final JsArray<RouteRecord> getMatched()
     {
         return matched;
     }
 
-    public Route addMatched(RouteRecord matched)
+    @JsOverlay
+    public final Route setMatched(JsArray<RouteRecord> matched)
     {
-        if (this.matched == null)
-            this.matched = new JsArray<>();
-
-        this.matched.push(matched);
+        this.matched = matched;
         return this;
     }
 
-    public String getRedirectedFrom()
+    @JsOverlay
+    public final String getRedirectedFrom()
     {
         return redirectedFrom;
     }
 
-    public Route setRedirectedFrom(String redirectedFrom)
+    @JsOverlay
+    public final Route setRedirectedFrom(String redirectedFrom)
     {
         this.redirectedFrom = redirectedFrom;
         return this;
     }
 
-    public Object getMeta()
+    @JsOverlay
+    public final Object getMeta()
     {
         return meta;
     }
 
-    public Route setMeta(Object meta)
+    @JsOverlay
+    public final Route setMeta(Object meta)
     {
         this.meta = meta;
         return this;

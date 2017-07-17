@@ -1,15 +1,22 @@
 package com.axellience.vueroutergwt.client;
 
+import com.axellience.vuegwt.client.Vue;
 import com.axellience.vuegwt.client.jsnative.jstypes.JsArray;
+import com.axellience.vuegwt.client.jsnative.jstypes.JsObject;
+import com.axellience.vuegwt.client.vue.VueConstructor;
 import com.axellience.vueroutergwt.client.functions.ParseQuery;
 import com.axellience.vueroutergwt.client.functions.ScrollBehavior;
 import com.axellience.vueroutergwt.client.functions.StringifyQuery;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
+import jsinterop.annotations.JsType;
 
 /**
  * @author Adrien Baron
  */
-public class RouterOptions
+@JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")
+public final class RouterOptions extends JsObject
 {
     @JsProperty private JsArray<RouteConfig> routes;
     @JsProperty private String mode;
@@ -21,12 +28,21 @@ public class RouterOptions
     @JsProperty private StringifyQuery stringifyQuery;
     @JsProperty private ScrollBehavior scrollBehavior;
 
-    public JsArray<RouteConfig> getRoutes()
+    @JsOverlay
+    public final JsArray<RouteConfig> getRoutes()
     {
         return routes;
     }
 
-    public RouterOptions addRoute(RouteConfig route)
+    @JsOverlay
+    public final RouterOptions setRoutes(JsArray<RouteConfig> routes)
+    {
+        this.routes = routes;
+        return this;
+    }
+
+    @JsOverlay
+    public final RouterOptions addRoute(RouteConfig route)
     {
         if (this.routes == null)
             this.routes = new JsArray<>();
@@ -35,89 +51,119 @@ public class RouterOptions
         return this;
     }
 
-    public String getMode()
+    @JsOverlay
+    public final <T extends Vue> RouterOptions addRoute(String path, VueConstructor<T> component)
+    {
+        this.addRoute(RouteConfig.of(path, component));
+        return this;
+    }
+
+    @JsOverlay
+    public final String getMode()
     {
         return mode;
     }
 
-    public RouterOptions setMode(RouterMode mode)
+    @JsOverlay
+    public final RouterOptions setMode(RouterMode mode)
     {
         this.mode = mode.getValue();
         return this;
     }
 
-    public boolean isFallback()
+    @JsOverlay
+    public final RouterOptions setMode(String mode)
+    {
+        this.mode = mode;
+        return this;
+    }
+
+    @JsOverlay
+    public final boolean isFallback()
     {
         return fallback;
     }
 
-    public RouterOptions setFallback(boolean fallback)
+    @JsOverlay
+    public final RouterOptions setFallback(boolean fallback)
     {
         this.fallback = fallback;
         return this;
     }
 
-    public String getBase()
+    @JsOverlay
+    public final String getBase()
     {
         return base;
     }
 
-    public RouterOptions setBase(String base)
+    @JsOverlay
+    public final RouterOptions setBase(String base)
     {
         this.base = base;
         return this;
     }
 
-    public String getLinkActiveClass()
+    @JsOverlay
+    public final String getLinkActiveClass()
     {
         return linkActiveClass;
     }
 
-    public RouterOptions setLinkActiveClass(String linkActiveClass)
+    @JsOverlay
+    public final RouterOptions setLinkActiveClass(String linkActiveClass)
     {
         this.linkActiveClass = linkActiveClass;
         return this;
     }
 
-    public String getLinkExactActiveClass()
+    @JsOverlay
+    public final String getLinkExactActiveClass()
     {
         return linkExactActiveClass;
     }
 
-    public RouterOptions setLinkExactActiveClass(String linkExactActiveClass)
+    @JsOverlay
+    public final RouterOptions setLinkExactActiveClass(String linkExactActiveClass)
     {
         this.linkExactActiveClass = linkExactActiveClass;
         return this;
     }
 
-    public ParseQuery getParseQuery()
+    @JsOverlay
+    public final ParseQuery getParseQuery()
     {
         return parseQuery;
     }
 
-    public RouterOptions setParseQuery(ParseQuery parseQuery)
+    @JsOverlay
+    public final RouterOptions setParseQuery(ParseQuery parseQuery)
     {
         this.parseQuery = parseQuery;
         return this;
     }
 
-    public StringifyQuery getStringifyQuery()
+    @JsOverlay
+    public final StringifyQuery getStringifyQuery()
     {
         return stringifyQuery;
     }
 
-    public RouterOptions setStringifyQuery(StringifyQuery stringifyQuery)
+    @JsOverlay
+    public final RouterOptions setStringifyQuery(StringifyQuery stringifyQuery)
     {
         this.stringifyQuery = stringifyQuery;
         return this;
     }
 
-    public ScrollBehavior getScrollBehavior()
+    @JsOverlay
+    public final ScrollBehavior getScrollBehavior()
     {
         return scrollBehavior;
     }
 
-    public RouterOptions setScrollBehavior(ScrollBehavior scrollBehavior)
+    @JsOverlay
+    public final RouterOptions setScrollBehavior(ScrollBehavior scrollBehavior)
     {
         this.scrollBehavior = scrollBehavior;
         return this;

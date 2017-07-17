@@ -1,28 +1,57 @@
 package com.axellience.vueroutergwt.client;
 
+import com.axellience.vuegwt.client.jsnative.jstypes.JsObject;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
+import jsinterop.annotations.JsType;
 
 /**
  * @author Adrien Baron
  */
-public class ResolveResult
+@JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")
+public final class ResolveResult extends JsObject
 {
     @JsProperty private Location location;
     @JsProperty private Route route;
     @JsProperty private String href;
 
-    public Location getLocation()
+    @JsOverlay
+    public final Location getLocation()
     {
         return location;
     }
 
-    public Route getRoute()
+    @JsOverlay
+    public final ResolveResult setLocation(Location location)
+    {
+        this.location = location;
+        return this;
+    }
+
+    @JsOverlay
+    public final Route getRoute()
     {
         return route;
     }
 
-    public String getHref()
+    @JsOverlay
+    public final ResolveResult setRoute(Route route)
+    {
+        this.route = route;
+        return this;
+    }
+
+    @JsOverlay
+    public final String getHref()
     {
         return href;
+    }
+
+    @JsOverlay
+    public final ResolveResult setHref(String href)
+    {
+        this.href = href;
+        return this;
     }
 }

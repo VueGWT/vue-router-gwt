@@ -1,105 +1,137 @@
 package com.axellience.vueroutergwt.client;
 
+import com.axellience.vuegwt.client.jsnative.jstypes.JsObject;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
+import jsinterop.annotations.JsType;
 
 /**
  * @author Adrien Baron
  */
-public class Location
+@JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")
+public final class Location extends JsObject
 {
     @JsProperty private String name;
     @JsProperty private String path;
     @JsProperty private String hash;
-    @JsProperty private Dictionary<String> query;
-    @JsProperty private Dictionary<String> params;
+    @JsProperty private JsObject<String> query;
+    @JsProperty private JsObject<String> params;
     @JsProperty private boolean append;
     @JsProperty private boolean replace;
 
-    public Location(String name, String path)
+    @JsOverlay
+    public static Location of(String name, String path)
     {
-        this.name = name;
-        this.path = path;
+        return new Location().setName(name).setPath(path);
     }
 
-    public String getName()
+    @JsOverlay
+    public final String getName()
     {
         return name;
     }
 
-    public Location setName(String name)
+    @JsOverlay
+    public final Location setName(String name)
     {
         this.name = name;
         return this;
     }
 
-    public String getPath()
+    @JsOverlay
+    public final String getPath()
     {
         return path;
     }
 
-    public Location setPath(String path)
+    @JsOverlay
+    public final Location setPath(String path)
     {
         this.path = path;
         return this;
     }
 
-    public String getHash()
+    @JsOverlay
+    public final String getHash()
     {
         return hash;
     }
 
-    public Location setHash(String hash)
+    @JsOverlay
+    public final Location setHash(String hash)
     {
         this.hash = hash;
         return this;
     }
 
-    public Dictionary<String> getQuery()
+    @JsOverlay
+    public final JsObject<String> getQuery()
     {
         return query;
     }
 
-    public Location setQueryField(String queryFieldName, String queryFieldValue)
+    @JsOverlay
+    public final Location setQuery(JsObject<String> query)
     {
-        if (this.query == null)
-            this.query = new Dictionary<>();
-
-        this.query.put(queryFieldName, queryFieldValue);
-
+        this.query = query;
         return this;
     }
 
-    public Dictionary<String> getParams()
+    @JsOverlay
+    public final Location setQueryParameter(String key, String value)
+    {
+        if (this.query == null)
+            this.query = new JsObject<>();
+
+        this.query.set(key, value);
+        return this;
+    }
+
+    @JsOverlay
+    public final JsObject<String> getParams()
     {
         return params;
     }
 
-    public Location setParam(String name, String value)
+    @JsOverlay
+    public final Location setParams(JsObject<String> params)
     {
-        if (this.params == null)
-            this.params = new Dictionary<>();
-
-        this.params.put(name, value);
+        this.params = params;
         return this;
     }
 
-    public boolean isAppend()
+    @JsOverlay
+    public final Location setParam(String key, String value)
+    {
+        if (this.params == null)
+            this.params = new JsObject<>();
+
+        this.params.set(key, value);
+        return this;
+    }
+
+    @JsOverlay
+    public final boolean isAppend()
     {
         return append;
     }
 
-    public Location setAppend(boolean append)
+    @JsOverlay
+    public final Location setAppend(boolean append)
     {
         this.append = append;
         return this;
     }
 
-    public boolean isReplace()
+    @JsOverlay
+    public final boolean isReplace()
     {
         return replace;
     }
 
-    public Location setReplace(boolean replace)
+    @JsOverlay
+    public final Location setReplace(boolean replace)
     {
         this.replace = replace;
         return this;

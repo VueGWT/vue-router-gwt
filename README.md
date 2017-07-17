@@ -114,10 +114,10 @@ public class RootComponent extends Vue {
         RouterOptions routerOptions = new RouterOptions();
         
         // We add the routes to our options by passing
-        // their path and the Constructor from the Components
+        // their path and the Constructor of the Component we want to display on them
         routerOptions
-            .addRoute(new RouteConfig("/foo", FooComponentConstructor.get()))
-            .addRoute(new RouteConfig("/bar", BarComponentConstructor.get()));
+            .addRoute("/foo", FooComponentConstructor.get())
+            .addRoute("/bar", BarComponentConstructor.get());
 
         // We the create our router
         VueRouter vueRouter = new VueRouter(routerOptions);

@@ -1,22 +1,25 @@
 package com.axellience.vueroutergwt.client;
 
 import com.axellience.vuegwt.client.Vue;
-import com.axellience.vuegwt.client.component.options.VueComponentOptions;
 import com.axellience.vuegwt.client.jsnative.jstypes.JsArray;
+import com.axellience.vuegwt.client.jsnative.jstypes.JsObject;
 import com.axellience.vuegwt.client.vue.VueConstructor;
 import com.axellience.vueroutergwt.client.functions.NavigationGuard;
-import com.axellience.vueroutergwt.client.functions.RedirectOption;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
+import jsinterop.annotations.JsType;
 
 /**
  * @author Adrien Baron
  */
-public class RouteConfig
+@JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")
+public final class RouteConfig extends JsObject
 {
     @JsProperty private String path;
     @JsProperty private String name;
     @JsProperty private Object component;
-    @JsProperty private Dictionary<Object> components;
+    @JsProperty private JsObject components;
     @JsProperty private Object redirect;
     @JsProperty private Object alias;
     @JsProperty private JsArray<RouteConfig> children;
@@ -26,163 +29,184 @@ public class RouteConfig
     @JsProperty private boolean caseSensitive;
     @JsProperty private PathToRegexpOptions pathToRegexpOptions;
 
-    public RouteConfig(String path)
+    @JsOverlay
+    public final static <T extends Vue> RouteConfig of(String path, VueConstructor<T> component)
     {
-        this.path = path;
+        return new RouteConfig().setPath(path).setComponent(component);
     }
 
-    public RouteConfig(String path, VueConstructor<? extends Vue> vueConstructor)
-    {
-        this(path);
-        this.setComponent(vueConstructor);
-    }
-
-    public String getPath()
+    @JsOverlay
+    public final String getPath()
     {
         return path;
     }
 
-    public RouteConfig setPath(String path)
+    @JsOverlay
+    public final RouteConfig setPath(String path)
     {
         this.path = path;
         return this;
     }
 
-    public String getName()
+    @JsOverlay
+    public final String getName()
     {
         return name;
     }
 
-    public RouteConfig setName(String name)
+    @JsOverlay
+    public final RouteConfig setName(String name)
     {
         this.name = name;
         return this;
     }
 
-    public Object getComponent()
+    @JsOverlay
+    public final Object getComponent()
     {
         return component;
     }
 
-    public RouteConfig setComponent(VueComponentOptions<? extends Vue> componentDefinition)
+    @JsOverlay
+    public final RouteConfig setComponent(Object component)
     {
-        this.component = componentDefinition;
+        this.component = component;
         return this;
     }
 
-    public RouteConfig setComponent(VueConstructor<? extends Vue> componentDefinition)
-    {
-        this.component = componentDefinition;
-        return this;
-    }
-
-    public Dictionary<Object> getComponents()
+    @JsOverlay
+    public final JsObject getComponents()
     {
         return components;
     }
 
-    public RouteConfig addComponent(String name,
-        VueComponentOptions<? extends Vue> componentDefinition)
+    @JsOverlay
+    public final RouteConfig setComponents(JsObject components)
     {
-        if (this.components == null)
-            this.components = new Dictionary<>();
-
-        this.components.put(name, componentDefinition);
+        this.components = components;
         return this;
     }
 
-    public RouteConfig addComponent(String name,
-        VueConstructor<? extends Vue> vueConstructor)
+    @JsOverlay
+    public final <T extends Vue> RouteConfig addComponent(String id, VueConstructor<T> component)
     {
         if (this.components == null)
-            this.components = new Dictionary<>();
+            this.components = new JsObject();
 
-        this.components.put(name, vueConstructor);
+        this.components.set(id, component);
         return this;
     }
 
-    public Object getRedirect()
+    @JsOverlay
+    public final Object getRedirect()
     {
         return redirect;
     }
 
-    public void setRedirect(String redirect)
+    @JsOverlay
+    public final RouteConfig setRedirect(Object redirect)
     {
         this.redirect = redirect;
+        return this;
     }
 
-    public void setRedirect(RedirectOption redirect)
-    {
-        this.redirect = redirect;
-    }
-
-    public Object getAlias()
+    @JsOverlay
+    public final Object getAlias()
     {
         return alias;
     }
 
-    public void setAlias(Object alias)
+    @JsOverlay
+    public final RouteConfig setAlias(Object alias)
     {
         this.alias = alias;
+        return this;
     }
 
-    public JsArray<RouteConfig> getChildren()
+    @JsOverlay
+    public final JsArray<RouteConfig> getChildren()
     {
         return children;
     }
 
-    public void setChildren(JsArray<RouteConfig> children)
+    @JsOverlay
+    public final RouteConfig setChildren(JsArray<RouteConfig> children)
     {
         this.children = children;
+        return this;
+    }
+    @JsOverlay
+    public final RouteConfig addChild(RouteConfig child)
+    {
+        if (this.children == null)
+            this.children = new JsArray<>();
+
+        this.children.push(child);
+        return this;
     }
 
-    public Object getMeta()
+    @JsOverlay
+    public final Object getMeta()
     {
         return meta;
     }
 
-    public void setMeta(Object meta)
+    @JsOverlay
+    public final RouteConfig setMeta(Object meta)
     {
         this.meta = meta;
+        return this;
     }
 
-    public NavigationGuard getBeforeEnter()
+    @JsOverlay
+    public final NavigationGuard getBeforeEnter()
     {
         return beforeEnter;
     }
 
-    public void setBeforeEnter(NavigationGuard beforeEnter)
+    @JsOverlay
+    public final RouteConfig setBeforeEnter(NavigationGuard beforeEnter)
     {
         this.beforeEnter = beforeEnter;
+        return this;
     }
 
-    public Object getProps()
+    @JsOverlay
+    public final Object getProps()
     {
         return props;
     }
 
-    public void setProps(Object props)
+    @JsOverlay
+    public final RouteConfig setProps(Object props)
     {
         this.props = props;
+        return this;
     }
 
-    public boolean isCaseSensitive()
+    @JsOverlay
+    public final boolean isCaseSensitive()
     {
         return caseSensitive;
     }
 
-    public void setCaseSensitive(boolean caseSensitive)
+    @JsOverlay
+    public final RouteConfig setCaseSensitive(boolean caseSensitive)
     {
         this.caseSensitive = caseSensitive;
+        return this;
     }
 
-    public PathToRegexpOptions getPathToRegexpOptions()
+    @JsOverlay
+    public final PathToRegexpOptions getPathToRegexpOptions()
     {
         return pathToRegexpOptions;
     }
 
-    public void setPathToRegexpOptions(PathToRegexpOptions pathToRegexpOptions)
+    @JsOverlay
+    public final RouteConfig setPathToRegexpOptions(PathToRegexpOptions pathToRegexpOptions)
     {
         this.pathToRegexpOptions = pathToRegexpOptions;
+        return this;
     }
 }

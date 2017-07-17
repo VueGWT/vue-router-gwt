@@ -1,50 +1,63 @@
 package com.axellience.vueroutergwt.client;
 
+import com.axellience.vuegwt.client.jsnative.jstypes.JsObject;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
+import jsinterop.annotations.JsType;
 
 /**
  * @author Adrien Baron
  */
-public class PathToRegexpOptions
+@JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")
+public final class PathToRegexpOptions extends JsObject
 {
     @JsProperty private boolean sensitive;
     @JsProperty private boolean strict;
     @JsProperty private boolean end;
 
-    public PathToRegexpOptions(boolean sensitive, boolean strict, boolean end)
+    @JsOverlay
+    public static PathToRegexpOptions of(boolean sensitive, boolean strict, boolean end)
     {
-        this.sensitive = sensitive;
-        this.strict = strict;
-        this.end = end;
+        return new PathToRegexpOptions().setSensitive(sensitive).setStrict(strict).setEnd(end);
     }
 
-    public boolean isSensitive()
+    @JsOverlay
+    public final boolean isSensitive()
     {
         return sensitive;
     }
 
-    public void setSensitive(boolean sensitive)
+    @JsOverlay
+    public final PathToRegexpOptions setSensitive(boolean sensitive)
     {
         this.sensitive = sensitive;
+        return this;
     }
 
-    public boolean isStrict()
+    @JsOverlay
+    public final boolean isStrict()
     {
         return strict;
     }
 
-    public void setStrict(boolean strict)
+    @JsOverlay
+    public final PathToRegexpOptions setStrict(boolean strict)
     {
         this.strict = strict;
+        return this;
     }
 
-    public boolean isEnd()
+    @JsOverlay
+    public final boolean isEnd()
     {
         return end;
     }
 
-    public void setEnd(boolean end)
+    @JsOverlay
+    public final PathToRegexpOptions setEnd(boolean end)
     {
         this.end = end;
+        return this;
     }
 }
