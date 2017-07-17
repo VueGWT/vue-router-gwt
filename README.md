@@ -103,7 +103,7 @@ Let's see how we declare our routes:
 
 ```java
 @Component
-public class RootComponent extends Vue{
+public class RootComponent extends Vue {
     @Override
     public void created() {}
 
@@ -114,10 +114,10 @@ public class RootComponent extends Vue{
         RouterOptions routerOptions = new RouterOptions();
         
         // We add the routes to our options by passing
-        // their path and the class from the Component to Instantiate on them
+        // their path and the Constructor from the Components
         routerOptions
-            .addRoute(new RouteConfig("/foo", FooComponent.class))
-            .addRoute(new RouteConfig("/bar", BarComponent.class));
+            .addRoute(new RouteConfig("/foo", FooComponentConstructor.get()))
+            .addRoute(new RouteConfig("/bar", BarComponentConstructor.get()));
 
         // We the create our router
         VueRouter vueRouter = new VueRouter(routerOptions);
