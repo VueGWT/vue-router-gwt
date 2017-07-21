@@ -40,6 +40,14 @@ Then follow these steps:
 </project>
 ```
 
+**✅ Add the GWT dependency**
+
+Add this in your app `.gwt.xml` file:
+
+```xml
+<inherits name='com.axellience.vueroutergwt.VueRouterGwt'/>
+```
+
 **✅ Add Vue Router JS Dependency to Your `index.html`**
 
 ```html
@@ -103,7 +111,7 @@ Let's see how we declare our routes:
 
 ```java
 @Component
-public class RootComponent extends Vue {
+public class RootComponent extends Vue implements HasCustomizeOptions {
     @Override
     public void created() {}
 
