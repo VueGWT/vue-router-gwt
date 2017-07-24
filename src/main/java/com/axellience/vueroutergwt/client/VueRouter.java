@@ -9,6 +9,7 @@ import com.axellience.vueroutergwt.client.functions.Callback;
 import com.axellience.vueroutergwt.client.functions.NavigationGuard;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 /**
@@ -17,9 +18,9 @@ import jsinterop.annotations.JsType;
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class VueRouter extends JsObject
 {
-    private Vue app;
-    private String mode;
-    private Route currentRoute;
+    @JsProperty private Vue app;
+    @JsProperty private String mode;
+    @JsProperty private Route currentRoute;
 
     public VueRouter(RouterOptions options)
     {
