@@ -40,13 +40,6 @@ public class VueRouter extends JsObject
     }
 
     @JsOverlay
-    public final VueRouter setMode(RouterMode mode)
-    {
-        this.mode = mode.getValue();
-        return this;
-    }
-
-    @JsOverlay
     public final Route getCurrentRoute()
     {
         return currentRoute;
