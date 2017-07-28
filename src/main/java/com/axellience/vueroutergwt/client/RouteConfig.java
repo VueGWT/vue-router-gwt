@@ -1,6 +1,7 @@
 package com.axellience.vueroutergwt.client;
 
-import com.axellience.vuegwt.client.Vue;
+import com.axellience.vuegwt.client.VueGWT;
+import com.axellience.vuegwt.client.component.VueComponent;
 import com.axellience.vuegwt.client.jsnative.jstypes.JsArray;
 import com.axellience.vuegwt.client.jsnative.jstypes.JsObject;
 import com.axellience.vuegwt.client.vue.VueConstructor;
@@ -30,9 +31,17 @@ public final class RouteConfig extends JsObject
     @JsProperty private PathToRegexpOptions pathToRegexpOptions;
 
     @JsOverlay
-    public final static <T extends Vue> RouteConfig of(String path, VueConstructor<T> component)
+    public final static <T extends VueComponent> RouteConfig of(String path,
+        VueConstructor<T> componentConstructor)
     {
-        return new RouteConfig().setPath(path).setComponent(component);
+        return new RouteConfig().setPath(path).setComponent(componentConstructor);
+    }
+
+    @JsOverlay
+    public final static <T extends VueComponent> RouteConfig of(String path,
+        Class<T> componentClass)
+    {
+        return of(path, (VueConstructor<T>) VueGWT.getJavaConstructor(componentClass));
     }
 
     @JsOverlay
@@ -88,13 +97,21 @@ public final class RouteConfig extends JsObject
     }
 
     @JsOverlay
-    public final <T extends Vue> RouteConfig addComponent(String id, VueConstructor<T> component)
+    public final <T extends VueComponent> RouteConfig addComponent(String id,
+        VueConstructor<T> componentConstructor)
     {
         if (this.components == null)
             this.components = new JsObject();
 
-        this.components.set(id, component);
+        this.components.set(id, componentConstructor);
         return this;
+    }
+
+    @JsOverlay
+    public final <T extends VueComponent> RouteConfig addComponent(String id,
+        Class<T> componentClass)
+    {
+        return this.addComponent(id, VueGWT.getConstructor(componentClass));
     }
 
     @JsOverlay
@@ -135,6 +152,7 @@ public final class RouteConfig extends JsObject
         this.children = children;
         return this;
     }
+
     @JsOverlay
     public final RouteConfig addChild(RouteConfig child)
     {

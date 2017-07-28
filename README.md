@@ -124,8 +124,8 @@ public class RootComponent extends Vue implements HasCustomizeOptions {
         // We add the routes to our options by passing
         // their path and the Constructor of the Component we want to display on them
         routerOptions
-            .addRoute("/foo", FooComponentConstructor.get())
-            .addRoute("/bar", BarComponentConstructor.get());
+            .addRoute("/foo", FooComponent.class)
+            .addRoute("/bar", BarComponent.class);
 
         // We the create our router
         VueRouter vueRouter = new VueRouter(routerOptions);
