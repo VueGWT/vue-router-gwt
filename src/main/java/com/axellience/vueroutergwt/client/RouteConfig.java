@@ -41,7 +41,7 @@ public final class RouteConfig extends JsObject
     public final static <T extends VueComponent> RouteConfig of(String path,
         Class<T> componentClass)
     {
-        return of(path, (VueConstructor<T>) VueGWT.getJavaConstructor(componentClass));
+        return of(path, VueGWT.getConstructor(componentClass));
     }
 
     @JsOverlay
