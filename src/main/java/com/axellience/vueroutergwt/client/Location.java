@@ -21,12 +21,6 @@ public final class Location extends JsObject
     @JsProperty private boolean replace;
 
     @JsOverlay
-    public static Location of(String name, String path)
-    {
-        return new Location().setName(name).setPath(path);
-    }
-
-    @JsOverlay
     public final String getName()
     {
         return name;

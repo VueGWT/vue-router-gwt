@@ -31,17 +31,31 @@ public final class RouteConfig extends JsObject
     @JsProperty private PathToRegexpOptions pathToRegexpOptions;
 
     @JsOverlay
-    public final static <T extends VueComponent> RouteConfig of(String path,
+    public static <T extends VueComponent> RouteConfig of(String path,
         VueConstructor<T> componentConstructor)
     {
         return new RouteConfig().setPath(path).setComponent(componentConstructor);
     }
 
     @JsOverlay
-    public final static <T extends VueComponent> RouteConfig of(String path,
+    public static <T extends VueComponent> RouteConfig of(String path,
         Class<T> componentClass)
     {
         return of(path, VueGWT.getConstructor(componentClass));
+    }
+
+    @JsOverlay
+    public static <T extends VueComponent> RouteConfig of(String name, String path,
+        VueConstructor<T> componentConstructor)
+    {
+        return of(path, componentConstructor).setName(name);
+    }
+
+    @JsOverlay
+    public static <T extends VueComponent> RouteConfig of(String name, String path,
+        Class<T> componentClass)
+    {
+        return of(path, componentClass).setName(name);
     }
 
     @JsOverlay
