@@ -2,11 +2,16 @@ package com.axellience.vueroutergwt.client;
 
 import com.axellience.vuegwt.client.Vue;
 import com.axellience.vuegwt.client.component.options.VueComponentOptions;
+import com.axellience.vuegwt.client.jsnative.html.HTMLDocument;
+import com.axellience.vuegwt.client.jsnative.html.HTMLElement;
 import com.axellience.vuegwt.client.jsnative.jstypes.JsArray;
 import com.axellience.vuegwt.client.jsnative.jstypes.JsObject;
+import com.axellience.vuegwt.client.tools.JsTools;
 import com.axellience.vueroutergwt.client.functions.AfterEach;
 import com.axellience.vueroutergwt.client.functions.Callback;
 import com.axellience.vueroutergwt.client.functions.NavigationGuard;
+import com.axellience.vueroutergwt.client.resources.VueRouterResources;
+import com.google.gwt.core.client.GWT;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
@@ -21,6 +26,26 @@ public class VueRouter extends JsObject
     @JsProperty private Vue app;
     @JsProperty private String mode;
     @JsProperty private Route currentRoute;
+
+    @JsOverlay
+    public static void init()
+    {
+        if (isVueRouterInjected())
+            return;
+
+        HTMLDocument document = HTMLDocument.get();
+
+        HTMLElement scriptElement = document.createElement("script");
+        VueRouterResources resources = GWT.create(VueRouterResources.class);
+        scriptElement.innerHTML = resources.vueRouterScript().getText();
+        document.body.appendChild(scriptElement);
+    }
+
+    @JsOverlay
+    private static boolean isVueRouterInjected()
+    {
+        return JsTools.getWindow().get("VueRouter") != null;
+    }
 
     public VueRouter(RouterOptions options)
     {
