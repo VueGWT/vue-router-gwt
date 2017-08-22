@@ -9,5 +9,5 @@ import jsinterop.annotations.JsFunction;
 @FunctionalInterface
 public interface Next
 {
-    void next(Object error);
+    void next(Object result);
 }
