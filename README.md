@@ -65,9 +65,7 @@ We have an application with a `RootComponent` and we want to set up routing for 
 
 ```java
 @Component
-public class FooComponent extends Vue {
-    @Override
-    public void created() {}
+public class FooComponent extends VueComponent {
 }
 ```
 
@@ -79,9 +77,7 @@ public class FooComponent extends Vue {
 
 ```java
 @Component
-public class BarComponent extends Vue {
-    @Override
-    public void created() {}
+public class BarComponent extends VueComponent {
 }
 ```
 
@@ -110,11 +106,8 @@ Ok this Component is going to be a little more interesting.
 Let's see how we declare our routes:
 
 ```java
-@Component
-public class RootComponent extends Vue implements HasCustomizeOptions {
-    @Override
-    public void created() {}
-
+// First, we declare a class to configure the routing and register it on some component options
+public class RoutesConfig implements CustomizeOptions {
     @Override
     public void customizeOptions(VueComponentOptions componentOptions)
     {
@@ -133,6 +126,13 @@ public class RootComponent extends Vue implements HasCustomizeOptions {
         // And set it on our Component options
         componentOptions.set("router", vueRouter);
     }
+}
+```
+
+```java
+// Then we bind this class to our root component so it customize it's options
+@Component(customizeOptions = RoutesConfig.class)
+public class RootComponent extends VueComponent {
 }
 ```
 
