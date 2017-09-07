@@ -14,29 +14,14 @@ Then follow these steps:
 
 ```xml
 <project>
-    <properties>
-        ...
-        <vue-router-gwt.version>0.1-SNAPSHOT</vue-router-gwt.version>
-    </properties>
-    
     <dependencies>
         ...
         <dependency>
             <groupId>com.axellience</groupId>
             <artifactId>vue-router-gwt</artifactId>
-            <version>${vue-router-gwt.version}</version>
+            <version>1.0-beta-1</version>
         </dependency>
     </dependencies>
-
-    
-    <!-- For now we only have SNAPSHOT releases, so you need to add the SonaType repository to get them -->
-    <repositories>
-        ...
-        <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </repository>
-    </repositories>
 </project>
 ```
 
@@ -48,11 +33,17 @@ Add this in your app `.gwt.xml` file:
 <inherits name='com.axellience.vueroutergwt.VueRouterGwt'/>
 ```
 
-**✅ Add Vue Router JS Dependency to Your `index.html`**
+**✅ Call VueRouter.init()**
 
-```html
-<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+This will inject the javascript of VueRouter in your page.
+You should do it right under your `Vue.init()`.
+
+```java
+Vue.init();
+VueRouter.init();
 ```
+
+If you already have the VueRouter javascript included in your page by another way, you don't have to call `VueRouter.init()`.
 
 ## How to Use It
 
@@ -130,7 +121,7 @@ public class RoutesConfig implements CustomizeOptions {
 ```
 
 ```java
-// Then we bind this class to our root component so it customize it's options
+// Then we bind this class to our RootComponent so it customize it's options
 @Component(customizeOptions = RoutesConfig.class)
 public class RootComponent extends VueComponent {
 }
