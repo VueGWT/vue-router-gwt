@@ -1,17 +1,19 @@
 package com.axellience.vueroutergwt.client;
 
-import com.axellience.vuegwt.client.tools.JsTools;
+import jsinterop.base.JsPropertyMap;
 
 /**
  * @author Adrien Baron
  */
 public interface VueRouteComponent
 {
-    default Route getRoute() {
-        return JsTools.get(this, "$route");
+    default Route getRoute()
+    {
+        return (Route) ((JsPropertyMap) this).get("$route");
     }
 
-    default VueRouter getRouter() {
-        return JsTools.get(this, "$router");
+    default VueRouter getRouter()
+    {
+        return (VueRouter) ((JsPropertyMap) this).get("$router");
     }
 }

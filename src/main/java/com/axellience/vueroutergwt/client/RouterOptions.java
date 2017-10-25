@@ -2,13 +2,12 @@ package com.axellience.vueroutergwt.client;
 
 import com.axellience.vuegwt.client.VueGWT;
 import com.axellience.vuegwt.client.component.VueComponent;
-import com.axellience.vuegwt.client.jsnative.jstypes.JsArray;
-import com.axellience.vuegwt.client.jsnative.jstypes.JsObject;
-import com.axellience.vuegwt.client.vue.VueJsConstructor;
 import com.axellience.vuegwt.client.vue.VueFactory;
+import com.axellience.vuegwt.client.vue.VueJsConstructor;
 import com.axellience.vueroutergwt.client.functions.ParseQuery;
 import com.axellience.vueroutergwt.client.functions.ScrollBehavior;
 import com.axellience.vueroutergwt.client.functions.StringifyQuery;
+import elemental2.core.Array;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
@@ -18,9 +17,9 @@ import jsinterop.annotations.JsType;
  * @author Adrien Baron
  */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")
-public final class RouterOptions extends JsObject
+public final class RouterOptions
 {
-    @JsProperty private JsArray<RouteConfig> routes;
+    @JsProperty private Array<RouteConfig> routes;
     @JsProperty private String mode;
     @JsProperty private boolean fallback;
     @JsProperty private String base;
@@ -31,13 +30,13 @@ public final class RouterOptions extends JsObject
     @JsProperty private ScrollBehavior scrollBehavior;
 
     @JsOverlay
-    public final JsArray<RouteConfig> getRoutes()
+    public final Array<RouteConfig> getRoutes()
     {
         return routes;
     }
 
     @JsOverlay
-    public final RouterOptions setRoutes(JsArray<RouteConfig> routes)
+    public final RouterOptions setRoutes(Array<RouteConfig> routes)
     {
         this.routes = routes;
         return this;
@@ -47,7 +46,7 @@ public final class RouterOptions extends JsObject
     public final RouterOptions addRoute(RouteConfig route)
     {
         if (this.routes == null)
-            this.routes = new JsArray<>();
+            this.routes = new Array<>();
 
         this.routes.push(route);
         return this;

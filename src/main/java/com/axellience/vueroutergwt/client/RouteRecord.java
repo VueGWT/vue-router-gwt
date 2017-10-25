@@ -1,24 +1,24 @@
 package com.axellience.vueroutergwt.client;
 
 import com.axellience.vuegwt.client.Vue;
-import com.axellience.vuegwt.client.jsnative.jstypes.JsObject;
 import com.axellience.vueroutergwt.client.functions.RedirectOption;
 import com.google.gwt.regexp.shared.RegExp;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
+import jsinterop.base.JsPropertyMap;
 
 /**
  * @author Adrien Baron
  */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")
-public final class RouteRecord extends JsObject
+public final class RouteRecord
 {
     @JsProperty private String path;
     @JsProperty private RegExp regex;
-    @JsProperty private JsObject components;
-    @JsProperty private JsObject<Vue> instances;
+    @JsProperty private JsPropertyMap components;
+    @JsProperty private JsPropertyMap<Vue> instances;
     @JsProperty private String name;
     @JsProperty private RouteRecord parent;
     @JsProperty private RedirectOption redirect;
@@ -53,26 +53,26 @@ public final class RouteRecord extends JsObject
     }
 
     @JsOverlay
-    public final JsObject getComponents()
+    public final JsPropertyMap getComponents()
     {
         return components;
     }
 
     @JsOverlay
-    public final RouteRecord setComponents(JsObject components)
+    public final RouteRecord setComponents(JsPropertyMap components)
     {
         this.components = components;
         return this;
     }
 
     @JsOverlay
-    public final JsObject<Vue> getInstances()
+    public final JsPropertyMap<Vue> getInstances()
     {
         return instances;
     }
 
     @JsOverlay
-    public final RouteRecord setInstances(JsObject<Vue> instances)
+    public final RouteRecord setInstances(JsPropertyMap<Vue> instances)
     {
         this.instances = instances;
         return this;

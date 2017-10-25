@@ -1,25 +1,27 @@
 package com.axellience.vueroutergwt.client;
 
-import com.axellience.vuegwt.client.jsnative.jstypes.JsArray;
-import com.axellience.vuegwt.client.jsnative.jstypes.JsObject;
+import elemental2.core.Array;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
+import jsinterop.base.JsPropertyMap;
+
+import static com.axellience.vuegwt.client.tools.JsUtils.map;
 
 /**
  * @author Adrien Baron
  */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")
-public final class Route extends JsObject
+public final class Route
 {
     @JsProperty private String name;
     @JsProperty private String path;
     @JsProperty private String hash;
-    @JsProperty private JsObject<String> query;
-    @JsProperty private JsObject<String> params;
+    @JsProperty private JsPropertyMap<String> query;
+    @JsProperty private JsPropertyMap<String> params;
     @JsProperty private String fullPath;
-    @JsProperty private JsArray<RouteRecord> matched;
+    @JsProperty private Array<RouteRecord> matched;
     @JsProperty private String redirectedFrom;
     @JsProperty private Object meta;
 
@@ -69,13 +71,13 @@ public final class Route extends JsObject
     }
 
     @JsOverlay
-    public final JsObject<String> getQuery()
+    public final JsPropertyMap<String> getQuery()
     {
         return query;
     }
 
     @JsOverlay
-    public final Route setQuery(JsObject<String> query)
+    public final Route setQuery(JsPropertyMap<String> query)
     {
         this.query = query;
         return this;
@@ -85,20 +87,20 @@ public final class Route extends JsObject
     public final Route setQueryParameter(String key, String value)
     {
         if (this.query == null)
-            this.query = new JsObject<>();
+            this.query = map();
 
         this.query.set(key, value);
         return this;
     }
 
     @JsOverlay
-    public final JsObject<String> getParams()
+    public final JsPropertyMap<String> getParams()
     {
         return params;
     }
 
     @JsOverlay
-    public final Route setParams(JsObject<String> params)
+    public final Route setParams(JsPropertyMap<String> params)
     {
         this.params = params;
         return this;
@@ -108,7 +110,7 @@ public final class Route extends JsObject
     public final Route setParam(String key, String value)
     {
         if (this.params == null)
-            this.params = new JsObject<>();
+            this.params = map();
 
         this.params.set(key, value);
         return this;
@@ -128,13 +130,13 @@ public final class Route extends JsObject
     }
 
     @JsOverlay
-    public final JsArray<RouteRecord> getMatched()
+    public final Array<RouteRecord> getMatched()
     {
         return matched;
     }
 
     @JsOverlay
-    public final Route setMatched(JsArray<RouteRecord> matched)
+    public final Route setMatched(Array<RouteRecord> matched)
     {
         this.matched = matched;
         return this;

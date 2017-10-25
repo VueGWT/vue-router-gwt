@@ -2,29 +2,29 @@ package com.axellience.vueroutergwt.client;
 
 import com.axellience.vuegwt.client.VueGWT;
 import com.axellience.vuegwt.client.component.VueComponent;
-import com.axellience.vuegwt.client.jsnative.jstypes.JsArray;
-import com.axellience.vuegwt.client.jsnative.jstypes.JsObject;
-import com.axellience.vuegwt.client.vue.VueJsConstructor;
 import com.axellience.vuegwt.client.vue.VueFactory;
+import com.axellience.vuegwt.client.vue.VueJsConstructor;
 import com.axellience.vueroutergwt.client.functions.NavigationGuard;
+import elemental2.core.Array;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
+import jsinterop.base.JsPropertyMap;
 
 /**
  * @author Adrien Baron
  */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")
-public final class RouteConfig extends JsObject
+public final class RouteConfig
 {
     @JsProperty private String path;
     @JsProperty private String name;
     @JsProperty private Object component;
-    @JsProperty private JsObject components;
+    @JsProperty private JsPropertyMap components;
     @JsProperty private Object redirect;
     @JsProperty private Object alias;
-    @JsProperty private JsArray<RouteConfig> children;
+    @JsProperty private Array<RouteConfig> children;
     @JsProperty private Object meta;
     @JsProperty private NavigationGuard beforeEnter;
     @JsProperty private Object props;
@@ -112,13 +112,13 @@ public final class RouteConfig extends JsObject
     }
 
     @JsOverlay
-    public final JsObject getComponents()
+    public final JsPropertyMap getComponents()
     {
         return components;
     }
 
     @JsOverlay
-    public final RouteConfig setComponents(JsObject components)
+    public final RouteConfig setComponents(JsPropertyMap components)
     {
         this.components = components;
         return this;
@@ -143,7 +143,7 @@ public final class RouteConfig extends JsObject
         VueJsConstructor<T> componentJsConstructor)
     {
         if (this.components == null)
-            this.components = new JsObject();
+            this.components = JsPropertyMap.of();
 
         this.components.set(id, componentJsConstructor);
         return this;
@@ -176,13 +176,13 @@ public final class RouteConfig extends JsObject
     }
 
     @JsOverlay
-    public final JsArray<RouteConfig> getChildren()
+    public final Array<RouteConfig> getChildren()
     {
         return children;
     }
 
     @JsOverlay
-    public final RouteConfig setChildren(JsArray<RouteConfig> children)
+    public final RouteConfig setChildren(Array<RouteConfig> children)
     {
         this.children = children;
         return this;
@@ -192,7 +192,7 @@ public final class RouteConfig extends JsObject
     public final RouteConfig addChild(RouteConfig child)
     {
         if (this.children == null)
-            this.children = new JsArray<>();
+            this.children = new Array<>();
 
         this.children.push(child);
         return this;
