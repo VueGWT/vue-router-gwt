@@ -1,6 +1,6 @@
 package com.axellience.vueroutergwt.client;
 
-import com.axellience.vuegwt.client.Vue;
+import com.axellience.vuegwt.core.client.Vue;
 import com.axellience.vueroutergwt.client.functions.RedirectOption;
 import com.google.gwt.regexp.shared.RegExp;
 import jsinterop.annotations.JsOverlay;

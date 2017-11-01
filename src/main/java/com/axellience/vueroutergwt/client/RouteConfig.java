@@ -1,9 +1,9 @@
 package com.axellience.vueroutergwt.client;
 
-import com.axellience.vuegwt.client.VueGWT;
-import com.axellience.vuegwt.client.component.VueComponent;
-import com.axellience.vuegwt.client.vue.VueFactory;
-import com.axellience.vuegwt.client.vue.VueJsConstructor;
+import com.axellience.vuegwt.core.client.VueGWT;
+import com.axellience.vuegwt.core.client.component.VueComponent;
+import com.axellience.vuegwt.core.client.vue.VueFactory;
+import com.axellience.vuegwt.core.client.vue.VueJsConstructor;
 import com.axellience.vueroutergwt.client.functions.NavigationGuard;
 import elemental2.core.Array;
 import jsinterop.annotations.JsOverlay;

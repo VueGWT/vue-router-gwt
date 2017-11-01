@@ -1,16 +1,17 @@
 package com.axellience.vueroutergwt.client;
 
-import com.axellience.vuegwt.client.Vue;
-import com.axellience.vuegwt.client.component.options.VueComponentOptions;
-import com.axellience.vuegwt.client.jsnative.html.HTMLDocument;
-import com.axellience.vuegwt.client.jsnative.html.HTMLElement;
+import com.axellience.vuegwt.core.client.Vue;
+import com.axellience.vuegwt.core.client.component.options.VueComponentOptions;
 import com.axellience.vueroutergwt.client.functions.AfterEach;
 import com.axellience.vueroutergwt.client.functions.Callback;
 import com.axellience.vueroutergwt.client.functions.NavigationGuard;
 import com.axellience.vueroutergwt.client.resources.VueRouterResources;
 import com.google.gwt.core.client.GWT;
+
 import elemental2.core.Array;
 import elemental2.dom.DomGlobal;
+import elemental2.dom.HTMLDocument;
+import elemental2.dom.HTMLElement;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
@@ -33,9 +34,9 @@ public class VueRouter
         if (isVueRouterInjected())
             return;
 
-        HTMLDocument document = HTMLDocument.get();
+        HTMLDocument document = DomGlobal.document;
 
-        HTMLElement scriptElement = document.createElement("script");
+        HTMLElement scriptElement = (HTMLElement) document.createElement("script");
         VueRouterResources resources = GWT.create(VueRouterResources.class);
         scriptElement.innerHTML = resources.vueRouterScript().getText();
         document.body.appendChild(scriptElement);

@@ -1,13 +1,13 @@
 package com.axellience.vueroutergwt.client;
 
+import static com.axellience.vuegwt.core.client.tools.JsUtils.map;
+
 import elemental2.core.Array;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 import jsinterop.base.JsPropertyMap;
-
-import static com.axellience.vuegwt.client.tools.JsUtils.map;
 
 /**
  * @author Adrien Baron
