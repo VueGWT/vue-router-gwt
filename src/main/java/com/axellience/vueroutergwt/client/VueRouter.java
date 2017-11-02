@@ -5,13 +5,8 @@ import com.axellience.vuegwt.core.client.component.options.VueComponentOptions;
 import com.axellience.vueroutergwt.client.functions.AfterEach;
 import com.axellience.vueroutergwt.client.functions.Callback;
 import com.axellience.vueroutergwt.client.functions.NavigationGuard;
-import com.axellience.vueroutergwt.client.resources.VueRouterResources;
-import com.google.gwt.core.client.GWT;
-
 import elemental2.core.Array;
 import elemental2.dom.DomGlobal;
-import elemental2.dom.HTMLDocument;
-import elemental2.dom.HTMLElement;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
@@ -31,19 +26,11 @@ public class VueRouter
     @JsOverlay
     public static void init()
     {
-        if (isVueRouterInjected())
-            return;
-
-        HTMLDocument document = DomGlobal.document;
-
-        HTMLElement scriptElement = (HTMLElement) document.createElement("script");
-        VueRouterResources resources = GWT.create(VueRouterResources.class);
-        scriptElement.innerHTML = resources.vueRouterScript().getText();
-        document.body.appendChild(scriptElement);
+        VueRouterLibInjector.ensureInjected();
     }
 
     @JsOverlay
-    private static boolean isVueRouterInjected()
+    static boolean isVueRouterInjected()
     {
         return ((JsPropertyMap) DomGlobal.window).get("VueRouter") != null;
     }
