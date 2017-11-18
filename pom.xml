@@ -7,7 +7,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.axellience</groupId>
 	<artifactId>vue-router-gwt</artifactId>
-	<version>1.0-beta-3-SNAPSHOT</version>
+	<version>1.0-beta-3</version>
 	<packaging>gwt-lib</packaging>
 
 	<name>Vue Router GWT</name>
@@ -40,7 +40,7 @@
 	<properties>
 		<gwtVersion>2.8.1</gwtVersion>
 
-		<vue-gwt.version>1.0-beta-3-SNAPSHOT</vue-gwt.version>
+		<vue-gwt.version>${project.version}</vue-gwt.version>
 
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
