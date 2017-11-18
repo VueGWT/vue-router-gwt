@@ -1,27 +1,23 @@
 package com.axellience.vueroutergwt.client;
 
-import com.axellience.vuegwt.client.Vue;
-import com.axellience.vuegwt.client.component.options.VueComponentOptions;
-import com.axellience.vuegwt.client.jsnative.html.HTMLDocument;
-import com.axellience.vuegwt.client.jsnative.html.HTMLElement;
-import com.axellience.vuegwt.client.jsnative.jstypes.JsArray;
-import com.axellience.vuegwt.client.jsnative.jstypes.JsObject;
-import com.axellience.vuegwt.client.tools.JsTools;
+import com.axellience.vuegwt.core.client.Vue;
+import com.axellience.vuegwt.core.client.component.options.VueComponentOptions;
 import com.axellience.vueroutergwt.client.functions.AfterEach;
 import com.axellience.vueroutergwt.client.functions.Callback;
 import com.axellience.vueroutergwt.client.functions.NavigationGuard;
-import com.axellience.vueroutergwt.client.resources.VueRouterResources;
-import com.google.gwt.core.client.GWT;
+import elemental2.core.Array;
+import elemental2.dom.DomGlobal;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
+import jsinterop.base.JsPropertyMap;
 
 /**
  * @author Adrien Baron
  */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
-public class VueRouter extends JsObject
+public class VueRouter
 {
     @JsProperty private Vue app;
     @JsProperty private String mode;
@@ -30,21 +26,13 @@ public class VueRouter extends JsObject
     @JsOverlay
     public static void init()
     {
-        if (isVueRouterInjected())
-            return;
-
-        HTMLDocument document = HTMLDocument.get();
-
-        HTMLElement scriptElement = document.createElement("script");
-        VueRouterResources resources = GWT.create(VueRouterResources.class);
-        scriptElement.innerHTML = resources.vueRouterScript().getText();
-        document.body.appendChild(scriptElement);
+        VueRouterLibInjector.ensureInjected();
     }
 
     @JsOverlay
-    private static boolean isVueRouterInjected()
+    static boolean isVueRouterInjected()
     {
-        return JsTools.getWindow().get("VueRouter") != null;
+        return ((JsPropertyMap) DomGlobal.window).get("VueRouter") != null;
     }
 
     public VueRouter(RouterOptions options)
@@ -106,7 +94,7 @@ public class VueRouter extends JsObject
 
     public native void forward();
 
-    public native JsArray<VueComponentOptions> getMatchedComponents(String to);
+    public native Array<VueComponentOptions> getMatchedComponents(String to);
 
     public native void onReady(Callback callback);
 
@@ -114,7 +102,7 @@ public class VueRouter extends JsObject
 
     public native void onError(Callback callback);
 
-    public native void addRoutes(JsArray<RouteConfig> routes);
+    public native void addRoutes(Array<RouteConfig> routes);
 
     public native ResolveResult resolve(String to);
 

@@ -1,6 +1,5 @@
 package com.axellience.vueroutergwt.client;
 
-import com.axellience.vuegwt.client.jsnative.jstypes.JsObject;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
@@ -10,7 +9,7 @@ import jsinterop.annotations.JsType;
  * @author Adrien Baron
  */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")
-public final class Position extends JsObject
+public final class Position
 {
     @JsProperty private int x;
     @JsProperty private int y;

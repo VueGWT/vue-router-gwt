@@ -1,8 +1,9 @@
 package com.axellience.vueroutergwt.client.hooks;
 
-import com.axellience.vuegwt.jsr69.component.annotations.HookMethod;
+import com.axellience.vuegwt.core.annotations.component.HookMethod;
 import com.axellience.vueroutergwt.client.Route;
 import com.axellience.vueroutergwt.client.functions.Next;
+
 import jsinterop.annotations.JsMethod;
 
 /**

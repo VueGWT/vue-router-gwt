@@ -1,22 +1,24 @@
 package com.axellience.vueroutergwt.client;
 
-import com.axellience.vuegwt.client.jsnative.jstypes.JsObject;
+import static com.axellience.vuegwt.core.client.tools.JsUtils.map;
+
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
+import jsinterop.base.JsPropertyMap;
 
 /**
  * @author Adrien Baron
  */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")
-public final class Location extends JsObject
+public final class Location
 {
     @JsProperty private String name;
     @JsProperty private String path;
     @JsProperty private String hash;
-    @JsProperty private JsObject<String> query;
-    @JsProperty private JsObject<String> params;
+    @JsProperty private JsPropertyMap<String> query;
+    @JsProperty private JsPropertyMap<String> params;
     @JsProperty private boolean append;
     @JsProperty private boolean replace;
 
@@ -60,13 +62,13 @@ public final class Location extends JsObject
     }
 
     @JsOverlay
-    public final JsObject<String> getQuery()
+    public final JsPropertyMap<String> getQuery()
     {
         return query;
     }
 
     @JsOverlay
-    public final Location setQuery(JsObject<String> query)
+    public final Location setQuery(JsPropertyMap<String> query)
     {
         this.query = query;
         return this;
@@ -76,20 +78,20 @@ public final class Location extends JsObject
     public final Location setQueryParameter(String key, String value)
     {
         if (this.query == null)
-            this.query = new JsObject<>();
+            this.query = map();
 
         this.query.set(key, value);
         return this;
     }
 
     @JsOverlay
-    public final JsObject<String> getParams()
+    public final JsPropertyMap<String> getParams()
     {
         return params;
     }
 
     @JsOverlay
-    public final Location setParams(JsObject<String> params)
+    public final Location setParams(JsPropertyMap<String> params)
     {
         this.params = params;
         return this;
@@ -99,7 +101,7 @@ public final class Location extends JsObject
     public final Location setParam(String key, String value)
     {
         if (this.params == null)
-            this.params = new JsObject<>();
+            this.params = map();
 
         this.params.set(key, value);
         return this;
