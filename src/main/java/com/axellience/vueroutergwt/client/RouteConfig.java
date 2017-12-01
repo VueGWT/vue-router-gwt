@@ -5,7 +5,7 @@ import com.axellience.vuegwt.core.client.component.VueComponent;
 import com.axellience.vuegwt.core.client.vue.VueFactory;
 import com.axellience.vuegwt.core.client.vue.VueJsConstructor;
 import com.axellience.vueroutergwt.client.functions.NavigationGuard;
-import elemental2.core.Array;
+import elemental2.core.JsArray;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
@@ -24,7 +24,7 @@ public final class RouteConfig
     @JsProperty private JsPropertyMap components;
     @JsProperty private Object redirect;
     @JsProperty private Object alias;
-    @JsProperty private Array<RouteConfig> children;
+    @JsProperty private JsArray<RouteConfig> children;
     @JsProperty private Object meta;
     @JsProperty private NavigationGuard beforeEnter;
     @JsProperty private Object props;
@@ -176,13 +176,13 @@ public final class RouteConfig
     }
 
     @JsOverlay
-    public final Array<RouteConfig> getChildren()
+    public final JsArray<RouteConfig> getChildren()
     {
         return children;
     }
 
     @JsOverlay
-    public final RouteConfig setChildren(Array<RouteConfig> children)
+    public final RouteConfig setChildren(JsArray<RouteConfig> children)
     {
         this.children = children;
         return this;
@@ -192,7 +192,7 @@ public final class RouteConfig
     public final RouteConfig addChild(RouteConfig child)
     {
         if (this.children == null)
-            this.children = new Array<>();
+            this.children = new JsArray<>();
 
         this.children.push(child);
         return this;

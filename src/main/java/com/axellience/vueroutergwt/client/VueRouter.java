@@ -5,7 +5,7 @@ import com.axellience.vuegwt.core.client.component.options.VueComponentOptions;
 import com.axellience.vueroutergwt.client.functions.AfterEach;
 import com.axellience.vueroutergwt.client.functions.Callback;
 import com.axellience.vueroutergwt.client.functions.NavigationGuard;
-import elemental2.core.Array;
+import elemental2.core.JsArray;
 import elemental2.dom.DomGlobal;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
@@ -94,7 +94,7 @@ public class VueRouter
 
     public native void forward();
 
-    public native Array<VueComponentOptions> getMatchedComponents(String to);
+    public native JsArray<VueComponentOptions> getMatchedComponents(String to);
 
     public native void onReady(Callback callback);
 
@@ -102,7 +102,7 @@ public class VueRouter
 
     public native void onError(Callback callback);
 
-    public native void addRoutes(Array<RouteConfig> routes);
+    public native void addRoutes(JsArray<RouteConfig> routes);
 
     public native ResolveResult resolve(String to);
 
