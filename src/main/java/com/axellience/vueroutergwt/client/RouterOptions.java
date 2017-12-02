@@ -7,7 +7,7 @@ import com.axellience.vuegwt.core.client.vue.VueJsConstructor;
 import com.axellience.vueroutergwt.client.functions.ParseQuery;
 import com.axellience.vueroutergwt.client.functions.ScrollBehavior;
 import com.axellience.vueroutergwt.client.functions.StringifyQuery;
-import elemental2.core.Array;
+import elemental2.core.JsArray;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
@@ -19,7 +19,7 @@ import jsinterop.annotations.JsType;
 @JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")
 public final class RouterOptions
 {
-    @JsProperty private Array<RouteConfig> routes;
+    @JsProperty private JsArray<RouteConfig> routes;
     @JsProperty private String mode;
     @JsProperty private boolean fallback;
     @JsProperty private String base;
@@ -30,13 +30,13 @@ public final class RouterOptions
     @JsProperty private ScrollBehavior scrollBehavior;
 
     @JsOverlay
-    public final Array<RouteConfig> getRoutes()
+    public final JsArray<RouteConfig> getRoutes()
     {
         return routes;
     }
 
     @JsOverlay
-    public final RouterOptions setRoutes(Array<RouteConfig> routes)
+    public final RouterOptions setRoutes(JsArray<RouteConfig> routes)
     {
         this.routes = routes;
         return this;
@@ -46,7 +46,7 @@ public final class RouterOptions
     public final RouterOptions addRoute(RouteConfig route)
     {
         if (this.routes == null)
-            this.routes = new Array<>();
+            this.routes = new JsArray<>();
 
         this.routes.push(route);
         return this;

@@ -1,13 +1,13 @@
 package com.axellience.vueroutergwt.client;
 
-import static com.axellience.vuegwt.core.client.tools.JsUtils.map;
-
-import elemental2.core.Array;
+import elemental2.core.JsArray;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 import jsinterop.base.JsPropertyMap;
+
+import static com.axellience.vuegwt.core.client.tools.JsUtils.map;
 
 /**
  * @author Adrien Baron
@@ -21,7 +21,7 @@ public final class Route
     @JsProperty private JsPropertyMap<String> query;
     @JsProperty private JsPropertyMap<String> params;
     @JsProperty private String fullPath;
-    @JsProperty private Array<RouteRecord> matched;
+    @JsProperty private JsArray<RouteRecord> matched;
     @JsProperty private String redirectedFrom;
     @JsProperty private Object meta;
 
@@ -130,13 +130,13 @@ public final class Route
     }
 
     @JsOverlay
-    public final Array<RouteRecord> getMatched()
+    public final JsArray<RouteRecord> getMatched()
     {
         return matched;
     }
 
     @JsOverlay
-    public final Route setMatched(Array<RouteRecord> matched)
+    public final Route setMatched(JsArray<RouteRecord> matched)
     {
         this.matched = matched;
         return this;
