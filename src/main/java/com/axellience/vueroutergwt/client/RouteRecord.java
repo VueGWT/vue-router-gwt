@@ -2,7 +2,7 @@ package com.axellience.vueroutergwt.client;
 
 import com.axellience.vuegwt.core.client.Vue;
 import com.axellience.vueroutergwt.client.functions.RedirectOption;
-import com.google.gwt.regexp.shared.RegExp;
+import elemental2.core.JsRegExp;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
@@ -16,7 +16,7 @@ import jsinterop.base.JsPropertyMap;
 public final class RouteRecord
 {
     @JsProperty private String path;
-    @JsProperty private RegExp regex;
+    @JsProperty private JsRegExp regex;
     @JsProperty private JsPropertyMap components;
     @JsProperty private JsPropertyMap<Vue> instances;
     @JsProperty private String name;
@@ -40,13 +40,13 @@ public final class RouteRecord
     }
 
     @JsOverlay
-    public final RegExp getRegex()
+    public final JsRegExp getRegex()
     {
         return regex;
     }
 
     @JsOverlay
-    public final RouteRecord setRegex(RegExp regex)
+    public final RouteRecord setRegex(JsRegExp regex)
     {
         this.regex = regex;
         return this;
