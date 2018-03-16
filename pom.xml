@@ -101,6 +101,19 @@
 					<compilerArgument>-proc:none</compilerArgument>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>com.amashchenko.maven.plugin</groupId>
+				<artifactId>gitflow-maven-plugin</artifactId>
+				<version>1.9.0</version>
+				<configuration>
+					<pushRemote>true</pushRemote>
+					<keepBranch>false</keepBranch>
+					<skipTestProject>true</skipTestProject>
+					<skipFeatureVersion>true</skipFeatureVersion>
+					<allowSnapshots>true</allowSnapshots>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
