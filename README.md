@@ -19,7 +19,7 @@ Then follow these steps:
         <dependency>
             <groupId>com.axellience</groupId>
             <artifactId>vue-router-gwt</artifactId>
-            <version>1.0-beta-6</version>
+            <version>1.0-beta-7</version>
         </dependency>
     </dependencies>
 </project>
