@@ -1,7 +1,7 @@
 package com.axellience.vueroutergwt.client;
 
 import com.axellience.vuegwt.core.client.VueGWT;
-import com.axellience.vuegwt.core.client.component.VueComponent;
+import com.axellience.vuegwt.core.client.component.IsVueComponent;
 import com.axellience.vuegwt.core.client.vue.VueFactory;
 import com.axellience.vuegwt.core.client.vue.VueJsConstructor;
 import com.axellience.vueroutergwt.client.functions.NavigationGuard;
@@ -32,41 +32,41 @@ public final class RouteConfig
     @JsProperty private PathToRegexpOptions pathToRegexpOptions;
 
     @JsOverlay
-    public static <T extends VueComponent> RouteConfig of(String path, Class<T> componentClass)
+    public static <T extends IsVueComponent> RouteConfig of(String path, Class<T> componentClass)
     {
         return of(path, VueGWT.getFactory(componentClass));
     }
 
     @JsOverlay
-    public static <T extends VueComponent> RouteConfig of(String path,
+    public static <T extends IsVueComponent> RouteConfig of(String path,
         VueFactory<T> componentFactory)
     {
         return of(path, componentFactory.getJsConstructor());
     }
 
     @JsOverlay
-    public static <T extends VueComponent> RouteConfig of(String path,
+    public static <T extends IsVueComponent> RouteConfig of(String path,
         VueJsConstructor<T> componentJsConstructor)
     {
         return new RouteConfig().setPath(path).setComponent(componentJsConstructor);
     }
 
     @JsOverlay
-    public static <T extends VueComponent> RouteConfig of(String name, String path,
+    public static <T extends IsVueComponent> RouteConfig of(String name, String path,
         Class<T> componentClass)
     {
         return of(path, componentClass).setName(name);
     }
 
     @JsOverlay
-    public static <T extends VueComponent> RouteConfig of(String name, String path,
+    public static <T extends IsVueComponent> RouteConfig of(String name, String path,
         VueFactory<T> componentFactory)
     {
         return of(path, componentFactory).setName(name);
     }
 
     @JsOverlay
-    public static <T extends VueComponent> RouteConfig of(String name, String path,
+    public static <T extends IsVueComponent> RouteConfig of(String name, String path,
         VueJsConstructor<T> componentJsConstructor)
     {
         return of(path, componentJsConstructor).setName(name);
@@ -125,21 +125,21 @@ public final class RouteConfig
     }
 
     @JsOverlay
-    public final <T extends VueComponent> RouteConfig addComponent(String id,
+    public final <T extends IsVueComponent> RouteConfig addComponent(String id,
         Class<T> componentClass)
     {
         return this.addComponent(id, VueGWT.getFactory(componentClass));
     }
 
     @JsOverlay
-    public final <T extends VueComponent> RouteConfig addComponent(String id,
+    public final <T extends IsVueComponent> RouteConfig addComponent(String id,
         VueFactory<T> componentFactory)
     {
         return this.addComponent(id, componentFactory.getJsConstructor());
     }
 
     @JsOverlay
-    public final <T extends VueComponent> RouteConfig addComponent(String id,
+    public final <T extends IsVueComponent> RouteConfig addComponent(String id,
         VueJsConstructor<T> componentJsConstructor)
     {
         if (this.components == null)
