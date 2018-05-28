@@ -10,5 +10,5 @@ import jsinterop.annotations.JsFunction;
 @JsFunction
 public interface AfterEach
 {
-    Object afterEach(Route to, Route from);
+    void afterEach(Route to, Route from);
 }
