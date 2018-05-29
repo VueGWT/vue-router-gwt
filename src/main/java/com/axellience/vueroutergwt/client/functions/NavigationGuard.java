@@ -10,5 +10,5 @@ import jsinterop.annotations.JsFunction;
 @JsFunction
 public interface NavigationGuard
 {
-    Object guard(Route to, Route from, Next next);
+    void guard(Route to, Route from, Next next);
 }

@@ -1,8 +1,8 @@
 package com.axellience.vueroutergwt.client;
 
 import com.axellience.vuegwt.core.client.VueGWT;
-import com.axellience.vuegwt.core.client.component.VueComponent;
-import com.axellience.vuegwt.core.client.vue.VueFactory;
+import com.axellience.vuegwt.core.client.component.IsVueComponent;
+import com.axellience.vuegwt.core.client.vue.VueComponentFactory;
 import com.axellience.vuegwt.core.client.vue.VueJsConstructor;
 import com.axellience.vueroutergwt.client.functions.ParseQuery;
 import com.axellience.vueroutergwt.client.functions.ScrollBehavior;
@@ -53,23 +53,23 @@ public final class RouterOptions
     }
 
     @JsOverlay
-    public final <T extends VueComponent> RouterOptions addRoute(String path,
+    public final <T extends IsVueComponent> RouterOptions addRoute(String path,
         Class<T> componentClass)
     {
-        this.addRoute(path, VueGWT.getFactory(componentClass));
+        this.addRoute(path, VueGWT.getVueComponentFactory(componentClass));
         return this;
     }
 
     @JsOverlay
-    public final <T extends VueComponent> RouterOptions addRoute(String path,
-        VueFactory<T> componentFactory)
+    public final <T extends IsVueComponent> RouterOptions addRoute(String path,
+        VueComponentFactory<T> componentFactory)
     {
         this.addRoute(path, componentFactory.getJsConstructor());
         return this;
     }
 
     @JsOverlay
-    public final <T extends VueComponent> RouterOptions addRoute(String path,
+    public final <T extends IsVueComponent> RouterOptions addRoute(String path,
         VueJsConstructor<T> componentJsConstructor)
     {
         this.addRoute(RouteConfig.of(path, componentJsConstructor));
