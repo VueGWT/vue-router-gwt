@@ -8,7 +8,7 @@ import jsinterop.annotations.JsFunction;
  */
 @FunctionalInterface
 @JsFunction
-public interface RoutePropsFunction
-{
-    Object getProps(Route route);
+public interface RoutePropsFunction {
+
+  Object getProps(Route route);
 }

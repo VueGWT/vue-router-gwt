@@ -8,7 +8,7 @@ import jsinterop.annotations.JsFunction;
  */
 @FunctionalInterface
 @JsFunction
-public interface NavigationGuard
-{
-    void guard(Route to, Route from, Next next);
+public interface NavigationGuard {
+
+  void guard(Route to, Route from, Next next);
 }

@@ -8,7 +8,7 @@ import jsinterop.annotations.JsFunction;
  */
 @FunctionalInterface
 @JsFunction
-public interface AfterEach
-{
-    void afterEach(Route to, Route from);
+public interface AfterEach {
+
+  void afterEach(Route to, Route from);
 }

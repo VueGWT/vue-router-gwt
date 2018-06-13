@@ -8,9 +8,9 @@ import jsinterop.annotations.JsMethod;
 /**
  * @author Adrien Baron
  */
-public interface HasBeforeRouterLeave
-{
-    @JsMethod
-    @HookMethod
-    void beforeRouteLeave(Route to, Route from, Next next);
+public interface HasBeforeRouterLeave {
+
+  @JsMethod
+  @HookMethod
+  void beforeRouteLeave(Route to, Route from, Next next);
 }

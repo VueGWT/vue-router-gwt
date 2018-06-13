@@ -7,7 +7,7 @@ import jsinterop.annotations.JsFunction;
  */
 @FunctionalInterface
 @JsFunction
-public interface StringifyQuery
-{
-    String stringifyQuery(Object query);
+public interface StringifyQuery {
+
+  String stringifyQuery(Object query);
 }

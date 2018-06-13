@@ -9,7 +9,7 @@ import jsinterop.annotations.JsFunction;
  */
 @FunctionalInterface
 @JsFunction
-public interface ScrollBehavior
-{
-    Object scrollBehavior(Route to, Route from, Position savedPosition);
+public interface ScrollBehavior {
+
+  Object scrollBehavior(Route to, Route from, Position savedPosition);
 }

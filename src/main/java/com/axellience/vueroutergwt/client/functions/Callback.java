@@ -7,7 +7,7 @@ import jsinterop.annotations.JsFunction;
  */
 @FunctionalInterface
 @JsFunction
-public interface Callback
-{
-    void callback();
+public interface Callback {
+
+  void callback();
 }

@@ -5,15 +5,13 @@ import jsinterop.base.JsPropertyMap;
 /**
  * @author Adrien Baron
  */
-public interface VueRouteComponent
-{
-    default Route getRoute()
-    {
-        return (Route) ((JsPropertyMap) this).get("$route");
-    }
+public interface VueRouteComponent {
 
-    default VueRouter getRouter()
-    {
-        return (VueRouter) ((JsPropertyMap) this).get("$router");
-    }
+  default Route getRoute() {
+    return (Route) ((JsPropertyMap) this).get("$route");
+  }
+
+  default VueRouter getRouter() {
+    return (VueRouter) ((JsPropertyMap) this).get("$router");
+  }
 }
