@@ -1,6 +1,5 @@
 package com.axellience.vueroutergwt.client;
 
-import com.axellience.vuegwt.core.client.VueGWT;
 import com.axellience.vuegwt.core.client.component.IsVueComponent;
 import com.axellience.vuegwt.core.client.vue.VueComponentFactory;
 import com.axellience.vuegwt.core.client.vue.VueJsConstructor;
@@ -56,13 +55,6 @@ public final class RouterOptions {
     }
 
     this.routes.push(route);
-    return this;
-  }
-
-  @JsOverlay
-  public final <T extends IsVueComponent> RouterOptions addRoute(String path,
-      Class<T> componentClass) {
-    this.addRoute(path, VueGWT.getVueComponentFactory(componentClass));
     return this;
   }
 

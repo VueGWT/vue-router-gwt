@@ -1,6 +1,5 @@
 package com.axellience.vueroutergwt.client;
 
-import com.axellience.vuegwt.core.client.VueGWT;
 import com.axellience.vuegwt.core.client.component.IsVueComponent;
 import com.axellience.vuegwt.core.client.vue.VueComponentFactory;
 import com.axellience.vuegwt.core.client.vue.VueJsConstructor;
@@ -44,11 +43,6 @@ public final class RouteConfig {
   private PathToRegexpOptions pathToRegexpOptions;
 
   @JsOverlay
-  public static <T extends IsVueComponent> RouteConfig of(String path, Class<T> componentClass) {
-    return of(path, VueGWT.getVueComponentFactory(componentClass));
-  }
-
-  @JsOverlay
   public static <T extends IsVueComponent> RouteConfig of(String path,
       VueComponentFactory<T> componentFactory) {
     return of(path, componentFactory.getJsConstructor());
@@ -58,12 +52,6 @@ public final class RouteConfig {
   public static <T extends IsVueComponent> RouteConfig of(String path,
       VueJsConstructor<T> componentJsConstructor) {
     return new RouteConfig().setPath(path).setComponent(componentJsConstructor);
-  }
-
-  @JsOverlay
-  public static <T extends IsVueComponent> RouteConfig of(String name, String path,
-      Class<T> componentClass) {
-    return of(path, componentClass).setName(name);
   }
 
   @JsOverlay
@@ -120,12 +108,6 @@ public final class RouteConfig {
   public final RouteConfig setComponents(JsPropertyMap components) {
     this.components = components;
     return this;
-  }
-
-  @JsOverlay
-  public final <T extends IsVueComponent> RouteConfig addComponent(String id,
-      Class<T> componentClass) {
-    return this.addComponent(id, VueGWT.getVueComponentFactory(componentClass));
   }
 
   @JsOverlay
