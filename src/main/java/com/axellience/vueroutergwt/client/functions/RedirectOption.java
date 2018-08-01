@@ -8,8 +8,8 @@ import jsinterop.annotations.JsFunction;
  */
 @FunctionalInterface
 @JsFunction
-public interface RedirectOption
-{
-    // Can return Location or String
-    Object redirectTo(Route route);
+public interface RedirectOption {
+
+  // Can return Location or String
+  Object redirectTo(Route route);
 }

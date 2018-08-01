@@ -7,7 +7,7 @@ import jsinterop.annotations.JsFunction;
  */
 @FunctionalInterface
 @JsFunction
-public interface ParseQuery
-{
-    Object parseQuery(String query);
+public interface ParseQuery {
+
+  Object parseQuery(String query);
 }

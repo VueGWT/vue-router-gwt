@@ -7,7 +7,7 @@ import jsinterop.annotations.JsFunction;
  */
 @JsFunction
 @FunctionalInterface
-public interface Next
-{
-    void next(Object result);
+public interface Next {
+
+  void next(Object result);
 }
