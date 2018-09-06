@@ -1,12 +1,12 @@
 # Vue Router GWT
 
-A JsInterop wrapper for [Vue Router](https://github.com/vuejs/vue-router) to use in [Vue GWT](https://axellience.github.io/vue-gwt/).
+A JsInterop wrapper for [Vue Router](https://github.com/vuejs/vue-router) to use in [Vue GWT](https://vuegwt.github.io/vue-gwt/).
 
-This wrapper allows you to use [Vue Router](https://github.com/vuejs/vue-router) in [Vue GWT](https://axellience.github.io/vue-gwt/) apps.
+This wrapper allows you to use [Vue Router](https://github.com/vuejs/vue-router) in [Vue GWT](https://vuegwt.github.io/vue-gwt/) apps.
 
 ## How to Set It Up
 
-Make sure you have [set up your Vue GWT project](https://axellience.github.io/vue-gwt/project-setup.html).
+Make sure you have [set up your Vue GWT project](https://vuegwt.github.io/vue-gwt/project-setup.html).
 
 Then follow these steps:
 
@@ -136,6 +136,6 @@ If you want more documentation on the API you can checkout the [official Vue Rou
 <p align="center">
     Vue GWT is developed by the awesome people at<br/>
     <a href="https://www.genmymodel.com" target="_blank">
-        <img src="https://axellience.github.io/vue-gwt/resources/images/GenMyModel-Logo-Black.png" alt="GenMyModel" height="50"/>
+        <img src="https://vuegwt.github.io/vue-gwt/resources/images/GenMyModel-Logo-Black.png" alt="GenMyModel" height="50"/>
     </a>
 </p>
