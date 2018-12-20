@@ -39,7 +39,7 @@ This will inject the javascript of VueRouter in your page.
 You should do it right under your `Vue.init()`.
 
 ```java
-VueGwt.init();
+VueGWT.init();
 VueRouter.init();
 ```
 
