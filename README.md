@@ -39,7 +39,7 @@ This will inject the javascript of VueRouter in your page.
 You should do it right under your `Vue.init()`.
 
 ```java
-Vue.init();
+VueGWT.init();
 VueRouter.init();
 ```
 
@@ -56,7 +56,7 @@ We have an application with a `RootComponent` and we want to set up routing for 
 
 ```java
 @Component
-public class FooComponent extends VueComponent {
+public class FooComponent implements IsVueComponent {
 }
 ```
 
@@ -68,7 +68,7 @@ public class FooComponent extends VueComponent {
 
 ```java
 @Component
-public class BarComponent extends VueComponent {
+public class BarComponent implements IsVueComponent {
 }
 ```
 
@@ -100,7 +100,7 @@ Let's see how we declare our routes:
 // First, we declare a class to configure the routing and register it on some component options
 public class RoutesConfig implements CustomizeOptions {
     @Override
-    public void customizeOptions(VueComponentOptions componentOptions)
+    public void customizeOptions(VueComponentOptions vueComponentOptions)
     {
         // We first create an object to hold our Router options
         RouterOptions routerOptions = new RouterOptions();
@@ -108,14 +108,14 @@ public class RoutesConfig implements CustomizeOptions {
         // We add the routes to our options by passing
         // their path and the Constructor of the Component we want to display on them
         routerOptions
-            .addRoute("/foo", FooComponent.class)
-            .addRoute("/bar", BarComponent.class);
+            .addRoute("/foo", FooComponentFactory.get())
+            .addRoute("/bar", BarComponentFactory.get());
 
         // We the create our router
         VueRouter vueRouter = new VueRouter(routerOptions);
         
         // And set it on our Component options
-        componentOptions.set("router", vueRouter);
+        vueComponentOptions.set("router", vueRouter);
     }
 }
 ```
@@ -123,7 +123,7 @@ public class RoutesConfig implements CustomizeOptions {
 ```java
 // Then we bind this class to our RootComponent so it customize it's options
 @Component(customizeOptions = RoutesConfig.class)
-public class RootComponent extends VueComponent {
+public class RootComponent implements IsVueComponent {
 }
 ```
 
