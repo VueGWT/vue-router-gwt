@@ -7,6 +7,7 @@ import com.axellience.vueroutergwt.client.functions.Callback;
 import com.axellience.vueroutergwt.client.functions.NavigationGuard;
 import elemental2.core.JsArray;
 import elemental2.dom.DomGlobal;
+import elemental2.promise.Promise;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
@@ -61,29 +62,29 @@ public class VueRouter {
 
   public native void afterEach(AfterEach afterEach);
 
-  public native void push(String location);
+  public native Promise<Void> push(String location);
 
-  public native void push(String location, Callback onComplete);
+  public native Promise<Void> push(String location, Callback onComplete);
 
-  public native void push(String location, Callback onComplete, Callback onAbort);
+  public native Promise<Void> push(String location, Callback onComplete, Callback onAbort);
 
-  public native void push(Location location);
+  public native Promise<Void> push(Location location);
 
-  public native void push(Location location, Callback onComplete);
+  public native Promise<Void> push(Location location, Callback onComplete);
 
-  public native void push(Location location, Callback onComplete, Callback onAbort);
+  public native Promise<Void> push(Location location, Callback onComplete, Callback onAbort);
 
-  public native void replace(String location);
+  public native Promise<Void> replace(String location);
 
-  public native void replace(String location, Callback onComplete);
+  public native Promise<Void> replace(String location, Callback onComplete);
 
-  public native void replace(String location, Callback onComplete, Callback onAbort);
+  public native Promise<Void> replace(String location, Callback onComplete, Callback onAbort);
 
-  public native void replace(Location location);
+  public native Promise<Void> replace(Location location);
 
-  public native void replace(Location location, Callback onComplete);
+  public native Promise<Void> replace(Location location, Callback onComplete);
 
-  public native void replace(Location location, Callback onComplete, Callback onAbort);
+  public native Promise<Void> replace(Location location, Callback onComplete, Callback onAbort);
 
   public native void go(int n);
 
